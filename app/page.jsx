@@ -1,10 +1,15 @@
 import AddProductForm from "@/components/AddProductForm";
-import { Button } from "@/components/ui/button";
+import AuthButton from "@/components/AuthButton";
+import { createClient } from "@/utils/supabase/server";
 import { Bell, LogIn, Rabbit, Shield } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
-  const user = null; // Replace with actual user authentication logic
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const products = []; // Replace with actual products data
 
   const FEATURES = [
@@ -42,14 +47,7 @@ export default function Home() {
           </div>
 
           {/* Auth Button */}
-          <Button
-            variant="default"
-            size="sm"
-            className="bg-orange-500 hover:bg-orange-600 gap-2 cursor-pointer"
-          >
-            <LogIn className="w-4 h-4" />
-            Sign In
-          </Button>
+          <AuthButton user={user} />
         </div>
       </header>
 
