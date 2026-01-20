@@ -110,4 +110,4 @@ export async function GET() {
   });
 }
 
-// curl -X POST http://localhost:3000/ -H "Authorization: Bearer a69009342a4def30ef70e53590b27c74e7712c3f07b39d8657c70ca5e4bd3882"
+// curl -X POST https://getprice-tracker-platform-nu.vercel.app/ -H "Authorization: Bearer a69009342a4def30ef70e53590b27c74e7712c3f07b39d8657c70ca5e4bd3882"
